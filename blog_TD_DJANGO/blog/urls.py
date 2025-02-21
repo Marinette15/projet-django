@@ -1,15 +1,9 @@
 from django.urls import path
-from .views import post_list, post_detail
+from .views import post_list, post_detail, create_post, index, blog
 
 urlpatterns = [
-    path('', post_list, name='post_list'),
-    path('post/<int:post_id>/', post_detail, name='post_detail'),
-]
-from django.urls import path
-from .views import post_list, post_detail, create_post
-
-urlpatterns = [
-    path('', post_list, name='post_list'),
-    path('post/<int:post_id>/', post_detail, name='post_detail'),
-    path('create/', create_post, name='create_post'),
+    path('', index, name='index'),  # Page d'accueil
+    path('blog/', blog, name='blog'),  # Page du blog
+    path('post/<int:post_id>/', post_detail, name='post_detail'),  # Détail d'un post
+    path('create/', create_post, name='create_post'),  # Création d'un post
 ]
